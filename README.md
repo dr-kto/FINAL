@@ -1,3 +1,4 @@
+@@ -1,24 +0,0 @@
 # vue-is-best
 
 ## Project setup
