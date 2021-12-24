@@ -1,0 +1,303 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+*::-webkit-scrollbar 
+{
+    width: 0;
+    height: 0;
+}
+html, body 
+{
+    background-color: grey;
+
+}
+a 
+{
+    text-decoration: none;
+    color: whitesmoke;
+}
+.container 
+{
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+}
+section 
+{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    scroll-snap-align: start;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    .label 
+    {
+        color: honeydew;
+    }
+
+    .content
+    {
+        // border-radius: 0.5em;
+        background-color: rgb(51, 51, 51);
+        position: relative;
+        overflow-x: hidden;
+        transition: 1s;
+        &::before 
+        {
+            content: "";
+            position: absolute;
+            transform-origin: 100%;
+            height: 100vh;
+            background-color: rgb(255, 1, 1);
+            animation: beforee 1s ease-in;
+        }
+        
+    }
+    .open 
+    {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        // z-index: 10;
+    }
+    .close
+    {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        opacity: 0;
+        color: rgb(128, 128, 128);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2em;
+    }
+    .btn
+    {
+        border-radius: 2em;
+        padding: 1em 2em;
+        background-color: rgb(255, 0, 0);
+        display: block;
+        font-size: 0.2em;
+    }
+    .subtitle 
+    {
+        margin: 3em 0 2em;
+        // margin-left: 1em;
+        font-size: 0.2em;
+        display: flex;
+        flex-direction: column;
+    }
+    .title
+    {
+        position: relative;
+        &::before, &::after
+        {
+            content: "";
+            position: absolute;
+            width: 1.5em;
+            height: 1px;
+            background-color: rgb(255, 0, 0);
+        }
+        &::before
+        {
+            top: 100%;
+        }
+        &::after
+        {
+            top: 110%;
+        }
+    }
+    .p 
+    {
+        font-size: 4.5vmin;
+        margin: 0 auto;
+        width: 60vmax;
+        text-transform: uppercase;
+        .title-w
+        {
+            display: inline;
+            color: rgb(255, 255, 255);
+        }
+        .title-r
+        {
+            display: inline;
+            color: rgb(255, 0, 0);
+        }
+        &::before
+        {
+            content: url("group.png");
+            width: 100vmax;
+            width: 100vmax;
+            position: absolute;
+        }
+        &::after
+        {
+
+        }
+    }
+    
+}
+.logo
+    {
+        text-transform: uppercase;
+        font-size: 1em;
+        position: fixed;
+        z-index: 10;
+        top: 1em;
+        left: 1em;
+        letter-spacing: 0.2e;
+        color: rgb(255, 255, 255);
+    }
+#main
+{
+    background-color: rgb(69, 60, 143);
+}
+section
+{
+    background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1614439790_57-p-temnii-fon-dlya-saita-61.jpg");
+}
+
+#our_works:target, #about_us:target, #get_in_touch:target 
+{
+     .content
+    {
+        position: fixed;
+        // z-index: 10;
+        left: 0;
+        top: 0;bottom: 0;right: 0;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        z-index: 1000000;
+        cursor:default;
+        margin-right: 0;
+        &::before
+        {
+            display: none;
+        }
+    }
+    .open {
+        display: none;
+    }
+    .close
+    {
+        // position: ;
+        // top: 0;
+        // left: 0;
+        width: 1em;
+        height: 1em;
+        border-radius: 50% 2% 0 2%;
+        visibility: visible;
+        opacity: 1;
+        transition: 1s;
+    }
+}
+
+@media all and (orientation: portrait) 
+{
+    section 
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .content 
+    {
+        width: 80vw;
+        height: 50vh;
+    }
+    .label
+    {
+        font-size: 10vw;
+        margin:0;
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+        align-items: right;
+    }
+    .btn 
+    {
+        margin: auto;
+    }
+    .title
+    {
+        &::before
+        {
+            left: 45%;
+        }
+        &::after
+        {
+            right: 45%;
+        }
+    }
+}
+@media (orientation: landscape) 
+{
+    section 
+    {
+        position: relative;
+    }
+    .content
+    {
+        width: 50vw;
+        height: 75vh;
+        margin-right: 10vmax;
+        margin-left: auto;
+    }
+    .label
+    {
+        font-size: 8vh;
+        margin-left: 10vh;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+        top: 32%;
+        z-index: 2;
+    }
+    .title
+    {
+        &::before
+        {
+            left: 0;
+        }
+        &::after
+        {
+            left: 20%;
+        }
+    }
+}
+
+
+@keyframes beforee 
+{
+    0% {
+        right: 0;
+        width: 5vw;
+    }
+    30% {
+        right: 10vw;
+        width: 30vh;
+    }
+    70% {
+        right: 40vw;
+        width: 20vh;
+    }
+    100% {
+        right: 70vw;
+        width: 0;
+    }
+}

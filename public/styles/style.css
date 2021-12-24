@@ -1,0 +1,331 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html, body {
+  background-color: grey;
+}
+
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.container {
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+section {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  scroll-snap-align: start;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+}
+
+section .label {
+  color: honeydew;
+}
+
+section .content {
+  background-color: #333333;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+section .content::before {
+  content: "";
+  position: absolute;
+  -webkit-transform-origin: 100%;
+          transform-origin: 100%;
+  height: 100vh;
+  background-color: #ff0101;
+  -webkit-animation: beforee 1s ease-in;
+          animation: beforee 1s ease-in;
+}
+
+section .open {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+section .close {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  color: gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2em;
+}
+
+section .btn {
+  border-radius: 2em;
+  padding: 1em 2em;
+  background-color: red;
+  display: block;
+  font-size: 0.2em;
+}
+
+section .subtitle {
+  margin: 3em 0 2em;
+  font-size: 0.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+section .title {
+  position: relative;
+}
+
+section .title::before, section .title::after {
+  content: "";
+  position: absolute;
+  width: 1.5em;
+  height: 1px;
+  background-color: red;
+}
+
+section .title::before {
+  top: 100%;
+}
+
+section .title::after {
+  top: 110%;
+}
+
+section .p {
+  font-size: 4.5vmin;
+  margin: 0 auto;
+  width: 60vmax;
+  text-transform: uppercase;
+}
+
+section .p .title-w {
+  display: inline;
+  color: white;
+}
+
+section .p .title-r {
+  display: inline;
+  color: red;
+}
+
+section .p::before {
+  content: url("group.png");
+  width: 100vmax;
+  width: 100vmax;
+  position: absolute;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-size: 1em;
+  position: fixed;
+  z-index: 10;
+  top: 1em;
+  left: 1em;
+  letter-spacing: 0.2e;
+  color: white;
+}
+
+#main {
+  background-color: #453c8f;
+}
+
+section {
+  background-image: url("https://catherineasquithgallery.com/uploads/posts/2021-02/1614439790_57-p-temnii-fon-dlya-saita-61.jpg");
+}
+
+#our_works:target .content, #about_us:target .content, #get_in_touch:target .content {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  z-index: 1000000;
+  cursor: default;
+  margin-right: 0;
+}
+
+#our_works:target .content::before, #about_us:target .content::before, #get_in_touch:target .content::before {
+  display: none;
+}
+
+#our_works:target .open, #about_us:target .open, #get_in_touch:target .open {
+  display: none;
+}
+
+#our_works:target .close, #about_us:target .close, #get_in_touch:target .close {
+  width: 1em;
+  height: 1em;
+  border-radius: 50% 2% 0 2%;
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+@media all and (orientation: portrait) {
+  section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .content {
+    width: 80vw;
+    height: 50vh;
+  }
+  .label {
+    font-size: 10vw;
+    margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    -webkit-box-align: right;
+        -ms-flex-align: right;
+            align-items: right;
+  }
+  .btn {
+    margin: auto;
+  }
+  .title::before {
+    left: 45%;
+  }
+  .title::after {
+    right: 45%;
+  }
+}
+
+@media (orientation: landscape) {
+  section {
+    position: relative;
+  }
+  .content {
+    width: 50vw;
+    height: 75vh;
+    margin-right: 10vmax;
+    margin-left: auto;
+  }
+  .label {
+    font-size: 8vh;
+    margin-left: 10vh;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    top: 32%;
+    z-index: 2;
+  }
+  .title::before {
+    left: 0;
+  }
+  .title::after {
+    left: 20%;
+  }
+}
+
+@-webkit-keyframes beforee {
+  0% {
+    right: 0;
+    width: 5vw;
+  }
+  30% {
+    right: 10vw;
+    width: 30vh;
+  }
+  70% {
+    right: 40vw;
+    width: 20vh;
+  }
+  100% {
+    right: 70vw;
+    width: 0;
+  }
+}
+
+@keyframes beforee {
+  0% {
+    right: 0;
+    width: 5vw;
+  }
+  30% {
+    right: 10vw;
+    width: 30vh;
+  }
+  70% {
+    right: 40vw;
+    width: 20vh;
+  }
+  100% {
+    right: 70vw;
+    width: 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */
