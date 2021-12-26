@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Send Message Bot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="circle.css">
+
+    <script src="eel.js"></script>
+</head>
+<body>
+    <div class="box">
+        <img src="send.png" alt="Send message">
+        <h2>Telegram Sender</h2>
+        <input type="text" id="id" placeholder="Chat ID">
+        <textarea type="text" class = "text" id="photo" placeholder="Message"></textarea><br>
+        <button id="send">Отпрaвить сообщение</button>
+
+        <div class="menu">
+            <div class="toggle"><ion-icon name="add-outline"></ion-icon></div>
+            <li style="--i:0"><a href="#"><ion-icon name="mail-outline"></ion-icon></a></li>
+            <li style="--i:1"><a href="#"><ion-icon name="videocam-outline"></ion-icon></a></li>
+            <li style="--i:2"><a href="#"><ion-icon name="attach-outline"></ion-icon></a></li>
+            <li style="--i:3"><a href="#"><ion-icon name="document-outline"></ion-icon></a></li>
+            <li style="--i:4"><a href="#"><ion-icon name="mic-outline"></ion-icon></a></li>
+            <li style="--i:5"><a href="#"><ion-icon name="call-outline"></ion-icon></a></li>
+            <li style="--i:6"><a href="#"><ion-icon name="call-outline"></ion-icon></a></li>
+            <li style="--i:7"><a href="#"><ion-icon name="trash-outline"></ion-icon></a></li>
+        </div>
+
+        <p id="result"></p>
+    </div>
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        let toggle = document.querySelector('.toggle');
+        let menu = document.querySelector('.menu');
+        toggle.onclick = function () {
+            menu.classList.toggle('active');
+        };
+    </script>
+    <script>
+        var textarea = document.getElementsByClassName('text');
+        async function send() {
+            let chat_id = document.getElementById('id').value;
+            let msg = document.getElementById('photo').value;
+
+            console.log(textarea);
+            if (textarea[0].id == "message"){
+                let result = await eel.send_message(chat_id, msg)();
+            }
+            if (textarea[0].id == "photo"){
+                let result = await eel.send_photo(chat_id, msg)();
+            }
+            if (textarea[0].id == "video"){
+                let result = await eel.send_video(chat_id, msg)();
+            }
+            if (textarea[0].id == "document"){
+                let result = await eel.send_document(chat_id, msg)();
+            }
+            if (textarea[0].id == "audio"){
+                let result = await eel.send_audio(chat_id, msg)();
+            }
+
+            document.getElementById('result').innerHTML = result;
+
+            document.getElementById('message').value = "";
+        }
+
+        $('.circle_items').click(function() {
+            let active = document.getElementsByClassName('active');
+
+            textarea[0].id = active[0].id;
+        })
+
+        $('#send').click(function(){
+            send();
+        })
+    </script>
+</body>
+</html>
