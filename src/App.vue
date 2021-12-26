@@ -1,10 +1,10 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-  <div class="container">
+  <div class="my-container">
     <div class="logo">Final</div>
     <section>
       <div class="p">
-        <div class="title-w">Great things in business are never bone by one person.</div>
+        <div class="title-w">Great things in business are never done by one person.</div>
         <div class="title-r">They're done by a team of people.</div>
       </div>
     </section>
@@ -20,9 +20,9 @@ export default {
   data() {
     return {
       pages: [
-        {id: 0, sid: "our_works", component: "OurWorks", title: "Our works", span: "hi", img: "https://www.theplace2.ru/archive/bruna_marquezine/img/bruna_marquezine_6144x4096_television_personality_actress_model_green_1049.jpg"},
-        {id: 1, sid: "about_us", component: "AboutUs", title: "About us", span: "We are game changers of `LIFE`", img: "https://www.theplace2.ru/archive/bruna_marquezine/img/bruna_marquezine_6144x4096_television_personality_actress_model_green_1049.jpg"},
-        {id: 2, sid: "get_in_touch", component: "GetInTouch", title: "Get in touch", span: "bakhtrv.dias@gmail.com", img: "https://www.theplace2.ru/archive/bruna_marquezine/img/bruna_marquezine_6144x4096_television_personality_actress_model_green_1049.jpg"}
+        {id: 0, sid: "our_works", component: "OurWorks", title: "Our Works", span: "hi", img: "./images/reile.jpg"},
+        {id: 1, sid: "about_us", component: "AboutUs", title: "About Us", span: "We are game changers of `LIFE`", img: "./images/about.jpg"},
+        {id: 2, sid: "get_in_touch", component: "GetInTouch", title: "Get In Touch", span: "bakhtrv.dias@gmail.com", img: "./images/contact.jpg"}
       ]
     }
   },

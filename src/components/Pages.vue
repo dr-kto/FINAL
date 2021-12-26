@@ -6,7 +6,7 @@
             <div class="subtitle">
                 <span>{{page.span}}</span>
             </div>
-            <a href="#" class="btn">Show me more</a>
+            <a :href="'#'+page.sid" class="btn">Show me more</a>
         </span>
 
         <div class="content">
