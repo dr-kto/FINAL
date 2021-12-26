@@ -630,6 +630,7 @@ section {
 }
 
 .sec {
+  overflow: hidden;
   width: 100vw;
   height: 33.3vh;
   display: -webkit-box;

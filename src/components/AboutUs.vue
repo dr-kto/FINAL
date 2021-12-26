@@ -1,7 +1,7 @@
 <template>
     <div class="about_us">
       <div v-for="dude in dudes" :key="dude.id" :dude="dude" class="sec">
-        <div class="photo"><img :src="dude.img" alt="spoki"></div>
+        <div class="photo"><img :src="dude.img" :alt="dude.name"></div>
         <div class="role">{{dude.role}}</div>
         <div class="profile">
           <div class="name_sname">{{dude.name}}</div>
